@@ -1,0 +1,149 @@
+/* SOLUÇÃO COM FLEXBOX */
+
+/* Fazem com que as tags HTML e BODY ocupem toda a tela */
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Propriedade 'flex' determina como os filhos vão ocupar o espaço no container (é proporção) */
+header {  
+  flex: 1;
+
+  background-color: #D2CCE5;
+}
+
+main {
+  display: flex;
+  /* flex-wrap: wrap; Diz para o flexbox quebrar linha quando atinge o limite de elementos */
+  align-items: center;
+  justify-content: space-around;
+  flex: 1;
+}
+
+footer {
+  flex: 1;
+  background-color: #FFDD89;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+}
+
+.red {
+  background-color: #F3C7C3;
+}
+
+.coral {
+  background-color: #FCE0C3;
+}
+
+.green {
+  background-color: #D0E1CA;
+}
+
+.blue {
+  background-color: #BFD3F7;
+}
+
+/* SOLUÇÃO COM GRID */
+
+/* Fazem com que as tags HTML e BODY ocupem toda a tela */
+html,
+body {
+  margin: 0;
+  height: 100%;
+}
+
+.container {
+  display: grid;
+  grid-auto-rows: repeat(3, 1fr);
+  grid-template-areas: "header" "main" "footer";
+  height: 100%;
+}
+
+/* Propriedade 'flex' determina como os filhos vão ocupar o espaço no container (é proporção) */
+header {
+  grid-area: header;
+  background-color: #D2CCE5;
+}
+
+main {
+  display: flex;
+  /* flex-wrap: wrap; Diz para o flexbox quebrar linha quando atinge o limite de elementos */
+  align-items: center;
+  justify-content: space-around;
+  grid-area: main;
+}
+
+footer {
+  grid-area: footer;
+  background-color: #FFDD89;
+}
+
+.box {
+  width: 150px;
+  height: 150px;
+}
+
+.red {
+  background-color: #F3C7C3;
+}
+
+.coral {
+  background-color: #FCE0C3;
+}
+
+.green {
+  background-color: #D0E1CA;
+}
+
+.blue {
+  background-color: #BFD3F7;
+}
+
+div {
+  border: black solid 1px;
+}
+
+.div-content {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.primary-div {
+  height: 200px;
+}
+
+.secondary-div {
+  height: 100px;
+  width: 100px;
+}
+
+/* .master-grid {
+  display: grid;
+  height: 100%;
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.line:nth-of-type(2) {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 1px solid lightslategray;
+}
+
+.square {
+  height: 10vw;
+  width: 10vw;
+  border: 1px solid lightslategray;
+} */
