@@ -9,3 +9,8 @@
 body {
 	font-size: 10px;
 }
+
+.header-list-item a:hover,
+.header-gender-item:hover {
+	color: #e4bb23;
+}

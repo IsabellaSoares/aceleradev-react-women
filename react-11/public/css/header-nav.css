@@ -63,10 +63,6 @@
 	transition: all 0.2s ease-in-out;
 }
 
-.header-list-item a:hover {
-	color: #e4bb23;
-}
-
 .header-user {
 	display: flex;
 	justify-content: flex-start;

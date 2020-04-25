@@ -47,6 +47,11 @@
 	transition: all 0.2s ease-in-out;
 }
 
+.header-btn:hover {
+  cursor: pointer;
+  opacity: 0.9;
+}
+
 .header-btn i {
 	font-size: 1.5em;
 	position: absolute;
