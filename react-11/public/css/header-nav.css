@@ -27,13 +27,7 @@
 	display: flex;
 }
 
-.header-menu-container {
-	margin: 0 auto;
-	position: relative;
-	width: 960px;
-}
-
-.header-menu .header-menu-container {
+.header-menu .container {
 	align-items: center;
 	display: flex;
 	justify-content: space-between;
