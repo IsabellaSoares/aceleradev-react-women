@@ -1,0 +1,65 @@
+.header-content {
+	width: 100%;
+}
+
+.header-content-container {
+	margin: 0 auto;
+	width: 960px;
+}
+
+.header-content .header-content-container {
+	position: relative;
+	z-index: 2;
+}
+
+.header-content-title {
+	color: #fff;
+	font-size: 6.5em;
+	font-weight: bold;
+	line-height: 1.2em;
+	margin: 0;
+	text-transform: uppercase;
+}
+
+.header-content-gender {
+	display: flex;
+	margin: 15px 0 30px;
+	font-size: 13px;
+}
+
+.header-gender-item {
+	color: #fff;
+	text-decoration: none;
+	margin-right: 15px;
+	text-transform: uppercase;
+	transition: all 0.2s ease-in-out;
+}
+
+.header-btn {
+	display: inline-block;
+	padding: 15px 50px;
+	color: #000;
+	font-size: 1.5em;
+	text-decoration: none;
+	background-color: #e4bb23;
+	border-radius: 40px;
+	position: relative;
+	transition: all 0.2s ease-in-out;
+}
+
+.header-btn i {
+	font-size: 1.5em;
+	position: absolute;
+	right: 15px;
+	top: 12px;
+}
+
+.header-content-infos {
+	padding: 20px 0;
+	font-size: 1.4em;
+	color: #fff;
+}
+
+.header-content-infos p:last-child {
+	color: #bc9a1d;
+}
