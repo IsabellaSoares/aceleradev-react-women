@@ -1,0 +1,102 @@
+.timeline {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  width: 100%;
+}
+
+.post {
+  background-color: white;
+  border: 1px solid rgba(0, 0, 0, .1);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+  overflow: hidden;
+}
+
+.post__header {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 8px;
+}
+
+.post__header .user {
+  align-items: center;
+  display: flex;
+}
+
+.post__header .user__thumb {
+  height: 40px;
+  margin-right: 8px;
+  width: 40px;
+}
+
+.post__header .user__name {
+  color: black;
+  font-size: 1.2rem;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.post__context {
+  font-size: 1.4rem;
+}
+
+.post__figure {
+  height: auto;
+  margin: 0;
+  overflow: hidden;
+  width: 100%;
+}
+
+.post__figure img {
+  width: 100%;
+}
+
+.post__controls {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  padding: 4px 0;
+  width: 100%;
+}
+
+.post__control {
+  font-size: 2.4rem;
+  margin: 0 8px;
+}
+
+.post__control:last-of-type {
+  justify-self: flex-end;
+  margin-left: auto;
+}
+
+.post__status {
+  background-color: rgba(0, 0, 0, 0.05);
+  display: flex;
+  padding: 8px;
+}
+
+.post__status .user {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.post__status .user__thumb {
+  height: 30px;
+  margin-right: 8px;
+  width: 30px;
+}
+
+.post__status .user span {
+  font-size: 1.2rem;
+}
+
+@media screen and (min-width: 728px) {
+	.timeline {
+    padding: 16px 0;
+	}
+}
