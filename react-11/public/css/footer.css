@@ -7,15 +7,12 @@
 }
 
 .footer-container {
+	align-items: center;
+  display: flex;
+	justify-content: space-between;
 	margin: 0 auto;
 	position: relative;
-	width: 960px;
-}
-
-.footer .footer-container {
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
+  width: 960px;
 }
 
 .social-btn-group {
