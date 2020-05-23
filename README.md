@@ -1,2 +1,3 @@
-# Repositório AceleraDev React Women
-Repositório para os projetos desenvolvidos durante o programa de capacitação AceleraDev React Women, promovido pela [Codenation](https://www.codenation.dev/) em parceria com a [Loft](https://loft.com.br/).
+# AceleraDev React Women Repository
+
+Repository for the projects developed during the AceleraDev React Women training program, promoted by [Codenation](https://www.codenation.dev/) in partnership with [Loft](https://loft.com.br/).
