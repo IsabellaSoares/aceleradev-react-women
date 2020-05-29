@@ -7,7 +7,11 @@ class Contact extends React.Component {
 
     return (
       <article data-testid="contact" className="contact">
-        <img src={contact.avatar} className="contact__avatar" />
+        <img
+          src={contact.avatar}
+          className="contact__avatar"
+          alt={`${contact.name} avatar`}
+        />
         <span className="contact__data">{contact.name}</span>
         <span className="contact__data">{contact.phone}</span>
         <span className="contact__data">{contact.country}</span>

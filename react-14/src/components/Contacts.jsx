@@ -9,7 +9,7 @@ class Contacts extends React.Component {
     return (
       <div data-testid="contacts" className="container">
         <section className="contacts">
-          <article data-testid="contact" className="contact">
+          <article className="contact">
             <span className="contact__avatar" />
             <span className="contact__data">Nome</span>
             <span className="contact__data">Telefone</span>
