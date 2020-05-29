@@ -25,6 +25,15 @@ class App extends React.Component {
 
   handleInputChange(event) {
     this.setState({ searchTerm: event.target.value });
+    this.filterContacts();
+  }
+
+  filterContacts() {
+    let filteredList = this.state.contacts.filter((contact) =>
+      contact.name.toLowerCase().includes(this.state.searchTerm.toLowerCase())
+    );
+
+    this.setState({ filteredContacts: filteredList });
   }
 
   render() {
@@ -35,7 +44,10 @@ class App extends React.Component {
           searchTerm={this.state.searchTerm}
           handleInputChange={this.handleInputChange.bind(this)}
         />
-        <Contacts contacts={this.state.contacts} />
+        <Contacts
+          contacts={this.state.contacts}
+          filteredContacts={this.state.filteredContacts}
+        />
       </React.Fragment>
     );
   }
