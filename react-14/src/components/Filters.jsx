@@ -3,6 +3,8 @@ import './Filters.scss';
 
 class Filters extends React.Component {
   render() {
+    const { searchTerm, handleInputChange } = this.props;
+
     return (
       <div data-testid="filters" className="container">
         <section className="filters">
@@ -11,6 +13,8 @@ class Filters extends React.Component {
               type="text"
               className="filters__search__input"
               placeholder="Pesquisar"
+              value={searchTerm}
+              onChange={handleInputChange}
             />
 
             <button className="filters__search__icon">
