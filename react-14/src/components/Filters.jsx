@@ -3,7 +3,7 @@ import './Filters.scss';
 
 class Filters extends React.Component {
   render() {
-    const { searchTerm, handleInputChange } = this.props;
+    const { searchTerm, handleInputChange, handleClick, active } = this.props;
 
     return (
       <div data-testid="filters" className="container">
@@ -22,23 +22,61 @@ class Filters extends React.Component {
             </button>
           </div>
 
-          <button className="filters__item is-selected">
+          <button
+            id="name"
+            className={`${
+              active === 'name' ? 'filters__item is-selected' : 'filters__item'
+            }`}
+            onClick={(event) => handleClick(event)}
+          >
             Nome <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item">
+          <button
+            id="country"
+            className={`${
+              active === 'country'
+                ? 'filters__item is-selected'
+                : 'filters__item'
+            }`}
+            onClick={(event) => handleClick(event)}
+          >
             País <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item">
+          <button
+            id="company"
+            className={`${
+              active === 'company'
+                ? 'filters__item is-selected'
+                : 'filters__item'
+            }`}
+            onClick={(event) => handleClick(event)}
+          >
             Empresa <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item">
+          <button
+            id="department"
+            className={`${
+              active === 'department'
+                ? 'filters__item is-selected'
+                : 'filters__item'
+            }`}
+            onClick={(event) => handleClick(event)}
+          >
             Departamento <i className="fas fa-sort-down" />
           </button>
 
-          <button className="filters__item">
+          <button
+            id="admissionDate"
+            className={`${
+              active === 'admissionDate'
+                ? 'filters__item is-selected'
+                : 'filters__item'
+            }`}
+            onClick={(event) => handleClick(event)}
+          >
             Data de admissão <i className="fas fa-sort-down" />
           </button>
         </section>

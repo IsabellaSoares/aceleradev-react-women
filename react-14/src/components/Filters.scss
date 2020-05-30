@@ -63,7 +63,6 @@
 
   & i {
     color: #9fa9bc;
-    margin-top: -5px;
     margin-left: 8px;
   }
 }
@@ -76,4 +75,12 @@
   & i {
     color: #fff;
   }
+}
+
+.fa-sort-down {
+  margin-top: -5px;
+}
+
+.fa-sort-up {
+  margin-bottom: -5px;
 }

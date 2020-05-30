@@ -10,6 +10,7 @@ class App extends React.Component {
     contacts: [],
     filteredContacts: [],
     filter: '',
+    active: '',
   };
 
   componentDidMount() {
@@ -36,6 +37,31 @@ class App extends React.Component {
     }
   }
 
+  handleClick(event) {
+    this.setState({
+      active: this.state.active === event.target.id ? '' : event.target.id,
+      filter: event.target.id,
+    });
+
+    this.orderContacts(event.target.id);
+  }
+
+  compare(property) {
+    return function (a, b) {
+      if (a[property] < b[property]) {
+        return -1;
+      }
+      if (a[property] > b[property]) {
+        return 1;
+      }
+      return 0;
+    };
+  }
+
+  orderContacts(property) {
+    this.state.contacts.sort(this.compare(property));
+  }
+
   render() {
     return (
       <React.Fragment>
@@ -43,6 +69,8 @@ class App extends React.Component {
         <Filters
           searchTerm={this.state.searchTerm}
           handleInputChange={this.handleInputChange.bind(this)}
+          handleClick={this.handleClick.bind(this)}
+          active={this.state.active}
         />
         <Contacts
           contacts={this.state.contacts}
