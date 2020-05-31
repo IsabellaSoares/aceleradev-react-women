@@ -4,12 +4,12 @@ import './Contacts.scss';
 
 class Contacts extends React.Component {
   render() {
-    const { contacts, filteredContacts } = this.props;
+    const { filteredContacts } = this.props;
 
     return (
       <div data-testid="contacts" className="container">
         <section className="contacts">
-          <article className="contact">
+          <article data-testid="contact" className="contact">
             <span className="contact__avatar" />
             <span className="contact__data">Nome</span>
             <span className="contact__data">Telefone</span>
@@ -18,13 +18,10 @@ class Contacts extends React.Component {
             <span className="contact__data">Empresa</span>
             <span className="contact__data">Departamento</span>
           </article>
-          {filteredContacts.length > 0
-            ? filteredContacts.map((contact) => {
-                return <Contact key={contact.id} contact={contact} />;
-              })
-            : contacts.map((contact) => {
-                return <Contact key={contact.id} contact={contact} />;
-              })}
+          {filteredContacts &&
+            filteredContacts.map((contact) => {
+              return <Contact key={contact.id} contact={contact} />;
+            })}
         </section>
       </div>
     );

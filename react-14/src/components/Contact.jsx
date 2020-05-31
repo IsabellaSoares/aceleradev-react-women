@@ -12,12 +12,24 @@ class Contact extends React.Component {
           className="contact__avatar"
           alt={`${contact.name} avatar`}
         />
-        <span className="contact__data">{contact.name}</span>
-        <span className="contact__data">{contact.phone}</span>
-        <span className="contact__data">{contact.country}</span>
-        <span className="contact__data">{contact.admissionDate}</span>
-        <span className="contact__data">{contact.company}</span>
-        <span className="contact__data">{contact.department}</span>
+        <span data-testid="contact-name" className="contact__data">
+          {contact.name}
+        </span>
+        <span data-testid="contact-phone" className="contact__data">
+          {contact.phone}
+        </span>
+        <span data-testid="contact-country" className="contact__data">
+          {contact.country}
+        </span>
+        <span data-testid="contact-date" className="contact__data">
+          {contact.admissionDate}
+        </span>
+        <span data-testid="contact-company" className="contact__data">
+          {contact ? contact.company : ''}
+        </span>
+        <span data-testid="contact-department" className="contact__data">
+          {contact.department}
+        </span>
       </article>
     );
   }

@@ -1,52 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Topbar from './components/Topbar';
 import Filters from './components/Filters';
 import Contacts from './components/Contacts';
 import './App.scss';
 
-class App extends React.Component {
-  state = {
-    searchTerm: '',
-    contacts: [],
-    filteredContacts: [],
-    filter: '',
-    active: '',
+const App = () => {
+  const [searchTerm, setSearchTerm] = useState('');
+  const [contacts, setContacts] = useState([]);
+  const [filteredContacts, setFilteredContacts] = useState([]);
+  const [active, setActive] = useState('');
+
+  useEffect(() => {
+    async function fetchData() {
+      const data = await new Promise((resolve, reject) => {
+        fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts')
+          .then((res) => res.json())
+          .then((contacts) => resolve(contacts))
+          .catch((error) => reject(error));
+      });
+      setContacts(data);
+      setFilteredContacts(data);
+    }
+
+    fetchData();
+  }, []);
+
+  const handleInputChange = (event) => {
+    setSearchTerm(event.target.value);
+    filterContacts(event.target.value);
   };
 
-  componentDidMount() {
-    fetch('https://5e82ac6c78337f00160ae496.mockapi.io/api/v1/contacts')
-      .then((res) => res.json())
-      .then((contacts) => this.setState({ contacts }))
-      .catch((error) => console.log(error));
-  }
-
-  handleInputChange(event) {
-    this.setState({ searchTerm: event.target.value });
-    this.filterContacts(event.target.value);
-  }
-
-  filterContacts(value) {
+  const filterContacts = (value) => {
     if (value !== '') {
-      let filteredList = this.state.contacts.filter((contact) =>
+      let filteredList = contacts.filter((contact) =>
         contact.name.toLowerCase().includes(value.toLowerCase())
       );
 
-      this.setState({ filteredContacts: filteredList });
+      setFilteredContacts(filteredList);
     } else {
-      this.setState({ filteredContacts: [] });
+      setFilteredContacts(contacts);
     }
-  }
+  };
 
-  handleClick(event) {
-    this.setState({
-      active: this.state.active === event.target.id ? '' : event.target.id,
-      filter: event.target.id,
-    });
+  const handleClick = (event) => {
+    setActive(active === event.target.id ? '' : event.target.id);
+    orderContacts(event.target.id);
+  };
 
-    this.orderContacts(event.target.id);
-  }
-
-  compare(property) {
+  const compare = (property) => {
     return function (a, b) {
       if (a[property] < b[property]) {
         return -1;
@@ -56,29 +57,24 @@ class App extends React.Component {
       }
       return 0;
     };
-  }
+  };
 
-  orderContacts(property) {
-    this.state.contacts.sort(this.compare(property));
-  }
+  const orderContacts = (property) => {
+    setContacts(contacts.sort(compare(property)));
+  };
 
-  render() {
-    return (
-      <React.Fragment>
-        <Topbar />
-        <Filters
-          searchTerm={this.state.searchTerm}
-          handleInputChange={this.handleInputChange.bind(this)}
-          handleClick={this.handleClick.bind(this)}
-          active={this.state.active}
-        />
-        <Contacts
-          contacts={this.state.contacts}
-          filteredContacts={this.state.filteredContacts}
-        />
-      </React.Fragment>
-    );
-  }
-}
+  return (
+    <div data-testid="app" className="app">
+      <Topbar />
+      <Filters
+        searchTerm={searchTerm}
+        handleInputChange={handleInputChange.bind(this)}
+        handleClick={handleClick.bind(this)}
+        active={active}
+      />
+      <Contacts filteredContacts={filteredContacts} />
+    </div>
+  );
+};
 
 export default App;
