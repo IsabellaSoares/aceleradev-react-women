@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Player = () => (<div className="player" />);
+const Player = () => <div data-testid="player" className="player" />;
 
 export default Player;
