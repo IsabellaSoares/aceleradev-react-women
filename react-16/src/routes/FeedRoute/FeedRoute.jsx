@@ -11,6 +11,9 @@ const FeedRoute = () => {
   const [users, setUsers] = useState([]);
   const [posts, setPosts] = useState([]);
   const [stories, setStories] = useState([]);
+  const [usersFetched, setUsersFetched] = useState(0);
+
+  const getUserById = (userId) => users.find((user) => userId === user.id);
 
   useEffect(() => {
     fetch('https://5e7d0266a917d70016684219.mockapi.io/api/v1/users')
@@ -19,18 +22,27 @@ const FeedRoute = () => {
   }, []);
 
   useEffect(() => {
-    fetch('	https://5e7d0266a917d70016684219.mockapi.io/api/v1/users/:id/posts')
-      .then((res) => res.json())
-      .then((data) => setPosts(data));
-  });
-
-  useEffect(() => {
     fetch('	https://5e7d0266a917d70016684219.mockapi.io/api/v1/stories')
       .then((res) => res.json())
       .then((data) => setStories(data));
   }, [users]);
 
-  const getUserById = (userId) => users.find((user) => userId === user.id);
+  useEffect(() => {
+    if (usersFetched === users.length) {
+      return;
+    }
+
+    fetch(
+      `https://5e7d0266a917d70016684219.mockapi.io/api/v1/users/${users[usersFetched].id}/posts`
+    )
+      .then((res) => res.json())
+      .then((data) => {
+        setPosts([...posts, ...data]);
+        setUsersFetched(usersFetched + 1);
+      });
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [users, usersFetched]);
 
   return (
     <div data-testid="feed-route">
@@ -38,7 +50,11 @@ const FeedRoute = () => {
         <Stories stories={stories} getUserHandler={getUserById} />
       )}
 
-      {/* <Posts posts={posts} /> */}
+      {users.length !== usersFetched ? (
+        <Loading />
+      ) : (
+        <Posts posts={posts} getUserHandler={getUserById} />
+      )}
     </div>
   );
 };
