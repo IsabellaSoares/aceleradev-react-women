@@ -6,7 +6,15 @@ import Loading from '../../components/Loading';
 import './UsersList.scss';
 
 const UersList = ({ users }) => {
-  return <section data-testid="user-list" className="users-list"></section>;
+  return (
+    <section className="users-list" data-testid="users-list">
+      {users.length > 0 ? (
+        users.map((user) => <User key={user.id} infoUser={user} />)
+      ) : (
+        <Loading />
+      )}
+    </section>
+  );
 };
 
 export default UersList;
